@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Aloysha</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .cake {
+      font-size: 8em;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Popup modal */
+    .popup {
+      display: none; /* Initially hidden */
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+
+    .popup-content {
+      background: #fff;
+      color: #333;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 420px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      animation: fadeIn 0.5s ease;
+    }
+
+    .popup-content h1 {
+      margin: 0;
+      font-size: 2em;
+      color: #d6336c;
+    }
+
+    .popup-content p {
+      margin-top: 10px;
+      font-size: 1.2em;
+    }
+
+    .flowers {
+      font-size: 2em;
+      margin-top: 15px;
+      animation: float 3s infinite ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .close-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #d6336c;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1em;
+      transition: transform 0.2s;
+    }
+
+    .close-btn:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Cake Emoji -->
+  <div class="cake" id="cake">🎂</div>
+
+  <!-- Popup - Initially hidden -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h1>Happy Birthday Aloysha 🎉</h1>
+      <p>May your day be filled with joy, laughter, and blessings! 💖</p>
+      <div class="flowers">🌸🌷🌹🌺🌻🌼</div>
+      <button class="close-btn" id="closeBtn">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const cake = document.getElementById('cake');
+    const popup = document.getElementById('popup');
+    const closeBtn = document.getElementById('closeBtn');
+
+    // Show popup when cake is clicked
+    cake.addEventListener('click', () => {
+      popup.style.display = 'flex'; // show popup
+    });
+
+    // Close popup when close button is clicked
+    closeBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+
+    // Close popup if clicked outside content
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        popup.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
